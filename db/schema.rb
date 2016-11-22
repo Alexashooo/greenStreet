@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121150418) do
+ActiveRecord::Schema.define(version: 20161121210339) do
+
+  create_table "streetprofiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "street_configuration"
+    t.integer  "user_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
