@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+gem 'angular-ui-router-rails'
+
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
@@ -39,10 +41,16 @@ gem 'angularjs-rails'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 
+
+
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
+
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

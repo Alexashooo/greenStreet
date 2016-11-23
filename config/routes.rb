@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'welcome/index'
-  get 'welcome/about'
+  #devise_for :users
 
-  devise_for :users
+  Rails.application.routes.draw do
+      devise_for :users, controllers: {
+        sessions: 'users/sessions'
+      }
+  end
 
   get '*path' => 'application#index'
   root to:'application#index'
+
 end
