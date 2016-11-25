@@ -1,7 +1,8 @@
 (function() {
      function LandingCtrl(UserData) {
          this.hello = "This is Green street app, enjoy!";
-         this.user_id = UserData.user_id;
+         this.users = UserData.query();
+         console.log(this.users);
 
 
      }

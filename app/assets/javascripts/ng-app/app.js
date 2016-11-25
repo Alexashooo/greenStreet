@@ -15,6 +15,6 @@
      }
 
     angular
-         .module('greenStreet', ['ui.router', 'templates'])
+         .module('greenStreet', ['ui.router', 'templates', 'ngResource'])
          .config(config);
 })();
