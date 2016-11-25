@@ -2,13 +2,15 @@ Rails.application.routes.draw do
 
   #devise_for :users
 
-  Rails.application.routes.draw do
-      devise_for :users, controllers: {
+  devise_for :users, controllers: {
         sessions: 'users/sessions'
-      }
-  end
+  }
+
+  resources :streetprofiles
+
 
   get '*path' => 'application#index'
+
   root to:'application#index'
 
 end

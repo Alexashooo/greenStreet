@@ -1,12 +1,12 @@
 (function() {
      function LandingCtrl(UserData) {
          this.hello = "This is Green street app, enjoy!";
-         this.user_id = UserData.user_id;
-
+         this.test_streetprofile = UserData.test_streetprofile;
+         this.test_streetprofile2 = UserData.test_streetprofile2; 
 
      }
 
      angular
          .module('greenStreet')
-         .controller('LandingCtrl', ['UserData', LandingCtrl] );
+         .controller('LandingCtrl', ['UserData', LandingCtrl]);
  })();

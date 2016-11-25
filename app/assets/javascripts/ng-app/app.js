@@ -1,5 +1,5 @@
 (function() {
-     function config($stateProvider, $locationProvider) {
+     function config($stateProvider, $locationProvider, $resourceProvider) {
          $stateProvider
             .state('landing', {
                 url: '/',
@@ -12,9 +12,11 @@
                 enabled: true,
                 requireBase: false
             });
+
+        $resourceProvider.defaults.stripTrailingSlashes = false;
      }
 
     angular
-         .module('greenStreet', ['ui.router', 'templates'])
+         .module('greenStreet', ['ui.router', 'templates', 'ngResource'])
          .config(config);
 })();
