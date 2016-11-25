@@ -2,7 +2,8 @@
      function LandingCtrl(UserData) {
          this.hello = "This is Green street app, enjoy!";
          this.test_streetprofile = UserData.test_streetprofile;
-         this.test_streetprofile2 = UserData.test_streetprofile2; 
+         this.test_streetprofile_create = UserData.test_streetprofile_create
+
 
      }
 

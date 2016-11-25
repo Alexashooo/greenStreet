@@ -41,8 +41,7 @@ gem 'angularjs-rails'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 
-
-
+gem 'rack-cors', :require => 'rack/cors'
 
 
 group :development, :test do
