@@ -1,7 +1,8 @@
 class StreetprofilesController < ApplicationController
 
   def index
-    respond_with(Streetprofile.all)
+    @streetprofiles = Streetprofile.all
+    render json: @streetprofiles, status: 200
   end
 
 

@@ -1,10 +1,18 @@
 (function() {
      function LandingCtrl(UserData) {
          this.hello = "This is Green street app, enjoy!";
-         this.test_streetprofile = UserData.test_streetprofile;
-         this.test_streetprofile_create = UserData.test_streetprofile_create
 
 
+
+
+
+
+         //this works
+         /**
+         this.first_street_profile = {};
+         this.first_street_profile = UserData.first_streetprofile;
+         this.destroy_second_street_profile = UserData.Streetprofiles.destroy({"id": 3});
+         */
      }
 
      angular
