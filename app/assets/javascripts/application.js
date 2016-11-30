@@ -19,4 +19,5 @@
 //= require angular-rails-templates
 //= require_tree ../templates
 //= require angular-ui-router
+//= require angular-devise
 //= require_tree .

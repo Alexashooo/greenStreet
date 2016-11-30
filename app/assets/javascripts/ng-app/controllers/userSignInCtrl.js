@@ -1,5 +1,8 @@
 (function() {
-     function LandingCtrl(UserData) {
+     function UserSigninCtrl($scope, UserData) {
+
+
+
 
 
          //this works
@@ -12,5 +15,5 @@
 
      angular
          .module('greenStreet')
-         .controller('LandingCtrl', ['UserData', LandingCtrl]);
+         .controller('UserSigninCtrl', ['UserData', UserSigninCtrl]);
  })();
