@@ -15,7 +15,7 @@
 
             .state('userSignIn', {
                 url: '/',
-                controller: 'UserSignUpCtrl as userSignIn',
+                controller: 'UserSignInCtrl as userSignIn',
                 templateUrl: 'user_signin.html'
             });
 

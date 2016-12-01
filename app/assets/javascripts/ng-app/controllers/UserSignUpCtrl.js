@@ -4,28 +4,22 @@
 
          var user_credentials = {};
 
-         var config = {
-             headers: {
-                 'X-HTTP-Method-Override': 'POST'
-             }
-         };
-
          $scope.regUser = function() {
-            user_credentials.email = $scope.email;
-            user_credentials.password = $scope.password;
-            user_credentials.password_confirmation = $scope.password_confirmation;
-            console.log(user_credentials);
-
-            Auth.register(user_credentials, config).then(function(registeredUser) {
-                console.log(registeredUser);
-            }, function(error) {
-                // Registration failed...
-            });
+           user_credentials.email = $scope.email;
+           user_credentials.password = $scope.password;
+           user_credentials.password_confirmation = $scope.password_confirmation;
+           UserData.sendUserDataReg(user_credentials, UserData.configSignInUp);
          };
 
          $scope.$on('devise:new-registration', function(event, user) {
-             // ...
+               // ...
          });
+
+
+
+
+
+
 
 
 

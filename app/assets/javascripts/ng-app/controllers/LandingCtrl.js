@@ -1,6 +1,10 @@
 (function() {
-     function LandingCtrl(UserData) {
+     function LandingCtrl($scope, UserData) {
 
+         $scope.signOut = function() {
+           UserData.userSignOut();
+           //alert("You just signed out");
+         };
 
          //this works
          /**
@@ -12,5 +16,5 @@
 
      angular
          .module('greenStreet')
-         .controller('LandingCtrl', ['UserData', LandingCtrl]);
+         .controller('LandingCtrl', ['$scope', 'UserData', LandingCtrl]);
  })();
