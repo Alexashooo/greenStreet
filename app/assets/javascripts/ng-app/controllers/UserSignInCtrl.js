@@ -1,5 +1,5 @@
 (function() {
-     function UserSignInCtrl($scope, UserData, $resource, Auth) {
+     function UserSignInCtrl($scope, UserData, $resource, Auth, $state) {
         this.UserData = UserData;
 
         var user_credentials = {};
@@ -8,6 +8,8 @@
           user_credentials.email = $scope.email;
           user_credentials.password = $scope.password;
           UserData.sendUserDataSignIn(user_credentials, UserData.configSignInUp);
+
+          $state.go('landing');
         };
 
         $scope.$on('devise:login', function(event, currentUser) {
@@ -32,6 +34,6 @@
 
      angular
          .module('greenStreet')
-         .controller('UserSignInCtrl', ['$scope', 'UserData', '$resource', 'Auth', UserSignInCtrl]);
+         .controller('UserSignInCtrl', ['$scope', 'UserData', '$resource', 'Auth', '$state', UserSignInCtrl]);
 
  })();

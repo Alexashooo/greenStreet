@@ -1,10 +1,22 @@
 (function() {
-     function LandingCtrl($scope, UserData) {
+     function LandingCtrl($scope, UserData, $resource, Auth) {
 
          $scope.signOut = function() {
            UserData.userSignOut();
-           //alert("You just signed out");
          };
+
+         $scope.signInOutRegVisibility = function() {
+           if(Auth.isAuthenticated()) {
+              return true;
+           }
+           else {
+               return false;
+           }
+         };
+
+
+
+
 
          //this works
          /**
@@ -16,5 +28,5 @@
 
      angular
          .module('greenStreet')
-         .controller('LandingCtrl', ['$scope', 'UserData', LandingCtrl]);
+         .controller('LandingCtrl', ['$scope', 'UserData', '$resource', 'Auth', LandingCtrl]);
  })();
