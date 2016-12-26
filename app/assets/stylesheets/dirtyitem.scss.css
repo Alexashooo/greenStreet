@@ -1,0 +1,7 @@
+.dirtyitem {
+    width: 50px;
+    height: 40px;
+    border: 5px solid green;
+    padding: 5px;
+    margin: 5px;
+}
