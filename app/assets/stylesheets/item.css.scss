@@ -1,11 +1,12 @@
 .item {
     width: 100px;
     height: 80px;
-    margin: 4px;
+    margin: 1px;
     background-color:#404040;
     display: inline-block;
     color: white;
     font-size: 15px;
+    position: relative;
 }
 
 .item:hover {
