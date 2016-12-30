@@ -11,8 +11,7 @@
                     angular.element(element[0].children[i]).draggable({
                         helper: 'clone',
                         revert: 'invalid',
-                        connectToSortable: '.itemlist',
-                        
+                        connectToSortable: '.street-profile'
                     })
 
                 }

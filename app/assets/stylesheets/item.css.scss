@@ -1,0 +1,35 @@
+.item {
+    width: 100px;
+    height: 80px;
+    margin: 4px;
+    background-color:#404040;
+    display: inline-block;
+    color: white;
+    font-size: 15px;
+}
+
+.item:hover {
+    cursor: pointer;
+}
+
+
+.item .resize-arrow-left  {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    float: left;
+
+}
+
+.item .resize-arrow-right  {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    float: right;
+}
