@@ -32,15 +32,17 @@
                      handles: 'e, w',
                      resize: function(event, ui){
                        referenceForResizing(element, ui.element);
-                       //console.log(profileStartLeft, element.css('left'), itemStartWidth);
                      }
 
                    });
 
                    element.disableSelection().sortable({
-                     //tolerance: 'pointer',
                      placeholder: 'placeholder',
-                     axis: 'x'
+                     axis: 'x',
+                     sort: function(event, ui){
+                         ui.placeholder.css('width', ui.item.css('width'));
+                         console.log($(ui.sortable).css('width'));
+                     }
                      }).droppable({
                       drop: function(event, ui) {
                         //prevent profile items to change while drag/drop
@@ -51,7 +53,7 @@
                            $(ui.draggable).addClass('item ui-sortable-handle');
                             //adjusting height and width
                            $(ui.draggable).height($('.item').css('height'));
-                           $(ui.draggable).width(100);
+                           $(ui.draggable).width($('.item').css('width'));
                            $(ui.draggable).resizable({
                              start: function(event, ui){
                                  startValuesWhileResizing(element, ui.element);
