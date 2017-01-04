@@ -38,7 +38,7 @@
                    });
 
                    element.disableSelection().sortable({
-                     tolerance: 'pointer',
+                     //tolerance: 'pointer',
                      placeholder: 'placeholder',
                      axis: 'x'
                      }).droppable({
