@@ -1,10 +1,13 @@
 .street-profile {
    background-color:grey;
    white-space:nowrap;
-   overflow-x: scroll;
-   overflow-y:hidden;
-   height:100%;
-   width:850px;
+   height:100px;
+   display:inline-block;
+   width: auto;
+   max-width: 1800px;
+   position:absolute;
+   top:500px;
+   left: 550px;
 }
 
 

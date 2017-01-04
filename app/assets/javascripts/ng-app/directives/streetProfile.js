@@ -13,20 +13,58 @@
                   //maxHeight: 80 can be one solution to limit vertical resizing to 0
                   //maxWidth: ? can be one solution to limit horizontal resizing
                   //minWidth
+                    var currentMousePos = 0;
+                    var mouseXDirection = "";
+
+                    //determine mouse direction, "left" or "right"
+                    var mouseDirection = function(event){
+                      if (event.pageX < currentMousePos) {
+                        mouseXDirection = "left"
+
+                      } else if (event.pageX > currentMousePos) {
+                        mouseXDirection = "right"
+                      };
+                      currentMousePos = event.pageX;
+                      return mouseXDirection;
+                    };
+
+
+
                    element.children().resizable({
+                     start: function(event, ui){
+                           itemStartWidth = parseInt(ui.element.css('width'));
+                           profileStartLeft = parseInt(element.css('left'));
+                     },
                      handles: 'e, w',
                      resize: function(event, ui){
-                         ui.element.css(ui.originalPosition);
+                       var whichHandle = ui.element.data('ui-resizable').axis;
+
+                       if(whichHandle === "w"){
+                            if(mouseDirection(event)==="left"){
+                              ui.element.css('left', 0);
+                              element.css('left', profileStartLeft - Math.abs(parseInt(ui.element.css('width')) - itemStartWidth)/2);
+                            } else if(mouseDirection(event)==="right"){
+                              ui.element.css('left', 0);
+                              element.css('left', profileStartLeft - Math.abs(parseInt(ui.element.css('width')) - itemStartWidth)/2);
+                            }
+                       } else if(whichHandle === "e"){
+                            if(mouseDirection(event)==="right"){
+                              ui.element.css('left', 0);
+                              element.css('left', profileStartLeft - Math.abs(parseInt(ui.element.css('width')) - itemStartWidth)/2);
+                            } else if(mouseDirection(event)==="left"){
+                              ui.element.css('left', 0);
+                              element.css('left', profileStartLeft - Math.abs(parseInt(ui.element.css('width')) - itemStartWidth)/2);
+                            }
+                       };
+
+                        console.log(profileStartLeft, element.css('left'), mouseDirection(event));
                      }
                    });
 
                    element.disableSelection().sortable({
                      tolerance: 'pointer',
-                     scroll: true,
                      placeholder: 'placeholder',
-                     containment: 'parent',
                      axis: 'x'
-
                      }).droppable({
                       drop: function(event, ui) {
                         //prevent profile items to change while drag/drop
@@ -41,7 +79,7 @@
                            $(ui.draggable).resizable({
                              handles: 'e, w',
                              resize: function(event, ui){
-                                 ui.element.css(ui.originalPosition);
+
                              }
                            });
 
