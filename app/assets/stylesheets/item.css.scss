@@ -7,6 +7,8 @@
     color: white;
     font-size: 15px;
     position: relative;
+    min-width: 45px;
+    max-width: 800px;
 
 }
 
@@ -17,7 +19,7 @@
 
 
 .item .resize-arrow-left  {
-    width: 30px;
+    width: 10px;
     height: 30px;
     background-color: red;
     position: relative;
@@ -28,7 +30,7 @@
 }
 
 .item .resize-arrow-right  {
-    width: 30px;
+    width: 10px;
     height: 30px;
     background-color: red;
     position: relative;

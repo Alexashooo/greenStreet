@@ -8,57 +8,33 @@
               scope: {},
               link: function(scope, element, attrs) {
 
-                   //write  custom resizible() function
-                  // use alsoResize to resize other elements
-                  //maxHeight: 80 can be one solution to limit vertical resizing to 0
-                  //maxWidth: ? can be one solution to limit horizontal resizing
-                  //minWidth
-                    var currentMousePos = 0;
-                    var mouseXDirection = "";
+                    var itemStartWidth = 0;
+                    var profileStartLeft = 0;
 
-                    //determine mouse direction, "left" or "right"
-                    var mouseDirection = function(event){
-                      if (event.pageX < currentMousePos) {
-                        mouseXDirection = "left"
-
-                      } else if (event.pageX > currentMousePos) {
-                        mouseXDirection = "right"
-                      };
-                      currentMousePos = event.pageX;
-                      return mouseXDirection;
-                    };
-
+                    //item (sortable element) start width and start "left" position of its parent (street profile)
+                    //while risizing
+                    var startValuesWhileResizing = function(element, child){
+                          itemStartWidth = parseInt(child.css('width'));
+                          profileStartLeft = parseInt(element.css('left'));
+                    }
+                    //usefull while resizing elements and ajusting parent (street-profile) left property
+                    //in order to get "illusion" of resizing left end right from senter of the element
+                    var referenceForResizing = function(element, child){
+                      child.css('left', 0);
+                      element.css('left', profileStartLeft - (parseInt(child.css('width')) - itemStartWidth)/2);
+                    }
 
 
                    element.children().resizable({
                      start: function(event, ui){
-                           itemStartWidth = parseInt(ui.element.css('width'));
-                           profileStartLeft = parseInt(element.css('left'));
+                           startValuesWhileResizing(element, ui.element);
                      },
                      handles: 'e, w',
                      resize: function(event, ui){
-                       var whichHandle = ui.element.data('ui-resizable').axis;
-
-                       if(whichHandle === "w"){
-                            if(mouseDirection(event)==="left"){
-                              ui.element.css('left', 0);
-                              element.css('left', profileStartLeft - Math.abs(parseInt(ui.element.css('width')) - itemStartWidth)/2);
-                            } else if(mouseDirection(event)==="right"){
-                              ui.element.css('left', 0);
-                              element.css('left', profileStartLeft - Math.abs(parseInt(ui.element.css('width')) - itemStartWidth)/2);
-                            }
-                       } else if(whichHandle === "e"){
-                            if(mouseDirection(event)==="right"){
-                              ui.element.css('left', 0);
-                              element.css('left', profileStartLeft - Math.abs(parseInt(ui.element.css('width')) - itemStartWidth)/2);
-                            } else if(mouseDirection(event)==="left"){
-                              ui.element.css('left', 0);
-                              element.css('left', profileStartLeft - Math.abs(parseInt(ui.element.css('width')) - itemStartWidth)/2);
-                            }
-                       };
-
-                        console.log(profileStartLeft, element.css('left'), mouseDirection(event));
+                       referenceForResizing(element, ui.element);
+                       //console.log(profileStartLeft, element.css('left'), itemStartWidth);
                      }
+
                    });
 
                    element.disableSelection().sortable({
@@ -77,9 +53,12 @@
                            $(ui.draggable).height($('.item').css('height'));
                            $(ui.draggable).width(100);
                            $(ui.draggable).resizable({
+                             start: function(event, ui){
+                                 startValuesWhileResizing(element, ui.element);
+                             },
                              handles: 'e, w',
                              resize: function(event, ui){
-
+                                referenceForResizing(element, ui.element);
                              }
                            });
 
