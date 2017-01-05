@@ -40,7 +40,7 @@
                      placeholder: 'placeholder',
                      axis: 'x',
                      sort: function(event, ui){
-                         ui.placeholder.css('width', ui.item.css('width'));
+                         ui.placeholder.css('width', parseInt(ui.item.css('width'))+20);
                          console.log($(ui.sortable).css('width'));
                      }
                      }).droppable({
@@ -73,7 +73,6 @@
                         }
                       }
                     });
-
               }
             };
       }
