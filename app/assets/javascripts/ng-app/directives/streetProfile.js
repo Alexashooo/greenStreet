@@ -46,14 +46,16 @@
                      }).droppable({
                       drop: function(event, ui) {
                         //prevent profile items to change while drag/drop
-                        if($(ui.draggable).hasClass('dirtyitem')){
+                        if($(ui.draggable).hasClass('dirty-item') || $(ui.draggable).hasClass('green-item')){
                           //remove class if draggable is dropped
                            $(ui.draggable).removeClass();
-                           //add class if draggable is dropped
+                           //add class if draggabdirtyitemle is dropped
                            $(ui.draggable).addClass('item ui-sortable-handle');
                             //adjusting height and width
                            $(ui.draggable).height($('.item').css('height'));
                            $(ui.draggable).width($('.item').css('width'));
+                           //move the list(streetProfile) to left while adding items
+                           element.css('left', parseInt(element.css('left'))- parseInt($(ui.draggable).css('width'))/2);
                            $(ui.draggable).resizable({
                              start: function(event, ui){
                                  startValuesWhileResizing(element, ui.element);
