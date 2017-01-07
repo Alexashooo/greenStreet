@@ -16,12 +16,14 @@
                     var startValuesWhileResizing = function(element, child){
                           itemStartWidth = parseInt(child.css('width'));
                           profileStartLeft = parseInt(element.css('left'));
+                          containerStartLeft = parseInt(element.parent().css('left'));
                     }
                     //usefull while resizing elements and ajusting parent (street-profile) left property
                     //in order to get "illusion" of resizing left end right from senter of the element
                     var referenceForResizing = function(element, child){
                       child.css('left', 0);
                       element.css('left', profileStartLeft - (parseInt(child.css('width')) - itemStartWidth)/2);
+                      
                     }
 
 
@@ -41,7 +43,7 @@
                      axis: 'x',
                      sort: function(event, ui){
                          ui.placeholder.css('width', parseInt(ui.item.css('width'))+20);
-                         console.log($(ui.sortable).css('width'));
+                         //console.log($(ui.sortable).css('width'));
                      }
                      }).droppable({
                       drop: function(event, ui) {

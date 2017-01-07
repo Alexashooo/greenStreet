@@ -3,7 +3,6 @@
    width:100px;
    border-color: black;
    border-style: solid;
-   position:relative;
-   top: 10%;
-   
+   display:inline-block;
+   vertical-align:top;
 }

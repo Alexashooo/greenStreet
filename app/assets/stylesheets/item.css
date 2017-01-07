@@ -2,11 +2,10 @@
     width: 150px;
     height: 80px;
     margin: 1px;
-    top: 410px;
+    top: 82%;
     background-color:#404040;
     display: inline-block;
     font-size: 5px;
-    position: relative;
     min-width: 45px;
     max-width: 800px;
 

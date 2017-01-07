@@ -2,12 +2,11 @@
    background-color:grey;
    white-space:nowrap;
    height:500px;
+   max-width: 3000px;
    display:inline-block;
-   width: auto;
-   max-width: 1800px;
-
-
+   vertical-align:top;
 }
+
 
  .placeholder{
   height:150px;
