@@ -4,7 +4,10 @@
   border-color: grey;
   border-style: solid;
   display:inline-block;
-  overflow-x: hidden;
   white-space:nowrap;
+  overflow-y: hidden;
+}
 
+* {
+  box-sizing: border-box;
 }

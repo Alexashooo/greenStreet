@@ -1,16 +1,16 @@
 .street-profile {
-   background-color:grey;
+   height:710px;
    white-space:nowrap;
-   height:500px;
-   max-width: 3000px;
    display:inline-block;
    vertical-align:top;
+   border-width: 1px;
+   border-style: solid;
+   border-color: green;
+
 }
 
 
- .placeholder{
-  height:150px;
-  width:100px;
+.placeholder{
   display:inline-block;
 }
 

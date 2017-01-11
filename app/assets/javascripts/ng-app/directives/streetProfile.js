@@ -8,8 +8,15 @@
               scope: {},
               link: function(scope, element, attrs) {
 
+                    //defined values before resizing starts and they get new values from selected element
                     var itemStartWidth = 0;
                     var profileStartLeft = 0;
+
+                    var extraSpaceWhileSorting = 40;
+
+                    //item default height and Width applied on dropped element
+                    var itemDefaultWidth = 148;
+                    var itemDafaultHeight = 693;
 
                     //item (sortable element) start width and start "left" position of its parent (street profile)
                     //while risizing
@@ -23,10 +30,7 @@
                     var referenceForResizing = function(element, child){
                       child.css('left', 0);
                       element.css('left', profileStartLeft - (parseInt(child.css('width')) - itemStartWidth)/2);
-                      
                     }
-
-
                    element.children().resizable({
                      start: function(event, ui){
                            startValuesWhileResizing(element, ui.element);
@@ -35,15 +39,19 @@
                      resize: function(event, ui){
                        referenceForResizing(element, ui.element);
                      }
-
                    });
 
                    element.disableSelection().sortable({
                      placeholder: 'placeholder',
-                     axis: 'x',
+                     // custom handle
+                     handle: '.myHandle',
                      sort: function(event, ui){
-                         ui.placeholder.css('width', parseInt(ui.item.css('width'))+20);
-                         //console.log($(ui.sortable).css('width'));
+                         ui.placeholder.css('width', parseInt(ui.item.css('width'))+extraSpaceWhileSorting);
+
+                     },
+                     stop: function(event, ui){
+
+                         console.log(ui.item.css('margin-left'), ui.item.css('margin-right'));
                      }
                      }).droppable({
                       drop: function(event, ui) {
@@ -52,10 +60,11 @@
                           //remove class if draggable is dropped
                            $(ui.draggable).removeClass();
                            //add class if draggabdirtyitemle is dropped
-                           $(ui.draggable).addClass('item ui-sortable-handle');
+                           $(ui.draggable).addClass('item');
                             //adjusting height and width
-                           $(ui.draggable).height($('.item').css('height'));
-                           $(ui.draggable).width($('.item').css('width'));
+                           $(ui.draggable).height(itemDafaultHeight);
+                           $(ui.draggable).width(itemDefaultWidth);
+
                            //move the list(streetProfile) to left while adding items
                            element.css('left', parseInt(element.css('left'))- parseInt($(ui.draggable).css('width'))/2);
                            $(ui.draggable).resizable({
@@ -63,6 +72,8 @@
                                  startValuesWhileResizing(element, ui.element);
                              },
                              handles: 'e, w',
+                             // custom handle
+                             //handle: '.myHandle',
                              resize: function(event, ui){
                                 referenceForResizing(element, ui.element);
                              }
