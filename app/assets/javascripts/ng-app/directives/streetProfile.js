@@ -44,7 +44,7 @@
                    element.disableSelection().sortable({
                      placeholder: 'placeholder',
                      // custom handle
-                     handle: '.myHandle',
+                     //handle: '.myHandle',
                      sort: function(event, ui){
                          ui.placeholder.css('width', parseInt(ui.item.css('width'))+extraSpaceWhileSorting);
 
