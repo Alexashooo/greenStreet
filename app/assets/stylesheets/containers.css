@@ -3,9 +3,8 @@
   top:10%;
   border-color: grey;
   border-style: solid;
-  display:inline-block;
   white-space:nowrap;
-  overflow-y: hidden;
+  display:inline-block;
 }
 
 * {

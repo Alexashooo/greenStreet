@@ -1,19 +1,14 @@
 .street-profile {
-   height:710px;
+   height:730px;
    white-space:nowrap;
-   display:inline-block;
    vertical-align:top;
    border-width: 1px;
    border-style: solid;
    border-color: green;
+   overflow: hidden;
+   display:inline-block;
+  
+   margin: 0;
+   padding: 0;
 
-}
-
-
-.placeholder{
-  display:inline-block;
-}
-
-.placeholder {
-  height: 1px !important;
 }
