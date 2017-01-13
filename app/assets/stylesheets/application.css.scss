@@ -19,6 +19,10 @@
 
 html, body {
    text-align: center;
-   white-space:nowrap;
    overflow-y: hidden;
+ }
+
+
+ * {
+   box-sizing: border-box;
  }

@@ -1,5 +1,5 @@
 (function() {
-     function streetProfile() {
+     function streetProfile($compile) {
 
           return {
               templateUrl: 'street_profile.html',
@@ -80,10 +80,9 @@
                            });
 
                            //Adding HTML for arrows
-                          $(ui.draggable).append(
-                               "<div class='resize-arrow-left'></div>",
-                               "<div class='resize-arrow-right'></div>"
-                          );
+                           $compile('<profile-item></profile-item>')(scope, function(profileItem, scope){
+                               $(ui.draggable).append(profileItem);
+                           });
 
                         }
                       }
@@ -94,5 +93,5 @@
 
       angular
           .module('greenStreet')
-          .directive('streetProfile', streetProfile);
+          .directive('streetProfile', ['$compile', streetProfile]);
   })();
