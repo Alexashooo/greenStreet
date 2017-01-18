@@ -1,5 +1,5 @@
 (function() {
-     function streetProfile($compile) {
+     function streetProfile($compile, $templateCache) {
 
           return {
               templateUrl: 'street_profile.html',
@@ -7,6 +7,14 @@
               restrict: 'E',
               scope: {},
               link: function(scope, element, attrs) {
+
+                    var onloadItems = $templateCache.get('onload_items.html');
+
+                    var deafultElementsOnStart = function(onloadItems){
+                        element.append($compile(onloadItems)(scope));
+                    };
+
+                    deafultElementsOnStart(onloadItems);
 
                     //defined values before resizing starts and they get new values from selected element
                     var itemStartWidth = 0;
@@ -31,11 +39,16 @@
                       child.css('left', 0);
                       element.css('left', profileStartLeft - (parseInt(child.css('width')) - itemStartWidth)/2);
                     }
+
+                    //makes items in streetProfile resizible
                    element.children().resizable({
                      start: function(event, ui){
                            startValuesWhileResizing(element, ui.element);
                      },
-                     handles: 'e, w',
+                     handles: {
+                       'e': '.ui-resizable-handle .ui-resizable-e',
+                       'w': '.ui-resizable-handle .ui-resizable-w'
+                     },
                      resize: function(event, ui){
                        referenceForResizing(element, ui.element);
                      }
@@ -44,13 +57,12 @@
                    element.disableSelection().sortable({
                      placeholder: 'placeholder',
                      // custom handle
-                     //handle: '.myHandle',
+                     handle: '.item-transportmode-pavement, .item-transortmode-picture',
                      sort: function(event, ui){
                          ui.placeholder.css('width', parseInt(ui.item.css('width'))+extraSpaceWhileSorting);
 
                      },
                      stop: function(event, ui){
-
                          console.log(ui.item.css('margin-left'), ui.item.css('margin-right'));
                      }
                      }).droppable({
@@ -60,7 +72,7 @@
                           //remove class if draggable is dropped
                            $(ui.draggable).removeClass();
                            //add class if draggabdirtyitemle is dropped
-                           $(ui.draggable).addClass('item');
+                           $(ui.draggable).addClass('item-container');
                             //adjusting height and width
                            $(ui.draggable).height(itemDafaultHeight);
                            $(ui.draggable).width(itemDefaultWidth);
@@ -71,19 +83,16 @@
                              start: function(event, ui){
                                  startValuesWhileResizing(element, ui.element);
                              },
-                             handles: 'e, w',
+
                              // custom handle
-                             //handle: '.myHandle',
+                             handles: 'e, w',
                              resize: function(event, ui){
                                 referenceForResizing(element, ui.element);
                              }
                            });
 
-                           //Adding HTML for arrows
-                           $compile('<profile-item></profile-item>')(scope, function(profileItem, scope){
-                               $(ui.draggable).append(profileItem);
-                           });
-
+                           //Adding HTML for new items dropped in streetProfile
+                           $(ui.draggable).append($compile('<profile-item></profile-item>')(scope));
                         }
                       }
                     });
@@ -93,5 +102,5 @@
 
       angular
           .module('greenStreet')
-          .directive('streetProfile', ['$compile', streetProfile]);
+          .directive('streetProfile', ['$compile', '$templateCache', streetProfile]);
   })();

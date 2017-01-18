@@ -1,0 +1,22 @@
+.item-container {
+    width: 150px;
+    height: 695px;
+    min-width: 46px;
+    max-width: 800px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    white-space: nowrap;
+    display:inline-block;
+    vertical-align: top;
+    margin:0;
+    padding: 0;
+}
+
+.placeholder{
+  display:inline-block;
+}
+
+.placeholder {
+  height: 1px !important;
+}
