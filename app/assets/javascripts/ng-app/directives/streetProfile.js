@@ -1,12 +1,21 @@
 (function() {
-     function streetProfile($compile, $templateCache) {
+     function streetProfile($compile, $templateCache, ItemData) {
+
+
 
           return {
               templateUrl: 'street_profile.html',
               replace: true,
               restrict: 'E',
-              scope: {},
+              scope: {
+                value:'@itemCurrentWidth'
+              },
               link: function(scope, element, attrs) {
+
+                     scope.itCurrentWidth = 148;
+
+                    //scope.itCurrentWidth = element.children().first().width();
+
 
                     var onloadItems = $templateCache.get('onload_items.html');
 
@@ -22,9 +31,8 @@
 
                     var extraSpaceWhileSorting = 40;
 
-                    //item default height and Width applied on dropped element
+                    //item default Width applied on dropped element
                     var itemDefaultWidth = 148;
-                    var itemDafaultHeight = 693;
 
                     //item (sortable element) start width and start "left" position of its parent (street profile)
                     //while risizing
@@ -33,6 +41,7 @@
                           profileStartLeft = parseInt(element.css('left'));
                           containerStartLeft = parseInt(element.parent().css('left'));
                     }
+
                     //usefull while resizing elements and ajusting parent (street-profile) left property
                     //in order to get "illusion" of resizing left end right from senter of the element
                     var referenceForResizing = function(element, child){
@@ -45,12 +54,14 @@
                      start: function(event, ui){
                            startValuesWhileResizing(element, ui.element);
                      },
-                     handles: {
-                       'e': '.ui-resizable-handle .ui-resizable-e',
-                       'w': '.ui-resizable-handle .ui-resizable-w'
-                     },
+                     handles: 'e,w',
                      resize: function(event, ui){
                        referenceForResizing(element, ui.element);
+                      //ItemData.currentWidth = ui.element.css('width');
+                      scope.$apply(function() {
+                        scope.itCurrentWidth = ui.element.css('width');
+                      });
+
                      }
                    });
 
@@ -63,7 +74,7 @@
 
                      },
                      stop: function(event, ui){
-                         console.log(ui.item.css('margin-left'), ui.item.css('margin-right'));
+                         //console.log(ui.item.css('margin-left'), ui.item.css('margin-right'));
                      }
                      }).droppable({
                       drop: function(event, ui) {
@@ -74,7 +85,7 @@
                            //add class if draggabdirtyitemle is dropped
                            $(ui.draggable).addClass('item-container');
                             //adjusting height and width
-                           $(ui.draggable).height(itemDafaultHeight);
+                           $(ui.draggable).height(parseInt($('.street-profile').css('height'))-4);
                            $(ui.draggable).width(itemDefaultWidth);
 
                            //move the list(streetProfile) to left while adding items
@@ -88,6 +99,9 @@
                              handles: 'e, w',
                              resize: function(event, ui){
                                 referenceForResizing(element, ui.element);
+                                scope.$apply(function() {
+                                  scope.itCurrentWidth = ui.element.css('width');
+                                });
                              }
                            });
 
@@ -102,5 +116,5 @@
 
       angular
           .module('greenStreet')
-          .directive('streetProfile', ['$compile', '$templateCache', streetProfile]);
+          .directive('streetProfile', ['$compile', '$templateCache', 'ItemData', streetProfile]);
   })();

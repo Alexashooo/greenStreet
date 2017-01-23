@@ -1,12 +1,48 @@
 (function() {
-      function profileItem(){
+      function profileItem(ItemData, $document){
+
           return {
               templateUrl: 'profile_item.html',
               replace: true,
               restrict: 'E',
-              scope: {},
+              scope:{
+              },
               link: function(scope, element, attrs){
-     
+
+              var manualInput = false;
+
+                $(document).keypress(function(e) {
+                    if(e.which == 13 && !manualInput) {
+                      manualInput = true;
+                    }
+                });
+
+
+                scope.currentElement = {
+                   parentWidth: element.parent().width()
+                };
+
+                //apply manual width with enter
+                scope.applyNewWidth = function(){
+                  element.parent().css('width', scope.currentElement.parentWidth);
+                  return true;
+                };
+
+                //following change of the element width while resize
+                scope.updateWidth = function(){
+                    return element.parent().width();
+                };
+
+                scope.$watch('updateWidth()', function(oldValue, newValue){
+                  if(newValue && !manualInput){
+                      scope.currentElement.parentWidth = newValue;
+                  } else if(manualInput){
+                     manualInput = false;
+                  }
+
+                });
+
+
               }
           };
 
@@ -14,5 +50,5 @@
 
       angular
           .module('greenStreet')
-          .directive('profileItem', profileItem);
+          .directive('profileItem', ['ItemData', '$document', profileItem]);
 })();
