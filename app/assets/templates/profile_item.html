@@ -4,8 +4,7 @@
         <div class="options-container">
             <div class="item-direction" ></div>
             <input type="text" id="manual-input" class="width-input" width="currentElementWidth"  ng-model="currentElement.parentWidth" ng-keyup="$event.keyCode == 13 && applyNewWidth()"></input>
-
-            <div class="item-remove"></div>
+            <button class="item-remove" ng-click="removeItem()">Delete</button>
         </div>
     </div>
 

@@ -12,6 +12,10 @@
           $state.go('landing');
         };
 
+        $scope.goBack = function(){
+           $state.go('landing');
+        };
+
         $scope.$on('devise:login', function(event, currentUser) {
           // after a login, a hard refresh, a new tab
         });

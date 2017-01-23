@@ -14,6 +14,10 @@
            $state.go('landing');
          };
 
+         $scope.goBack = function(){
+            $state.go('landing');
+         };
+
          $scope.$on('devise:new-registration', function(event, user) {
 
          });

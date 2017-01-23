@@ -1,21 +1,13 @@
 (function() {
      function streetProfile($compile, $templateCache, ItemData) {
 
-
-
           return {
               templateUrl: 'street_profile.html',
               replace: true,
               restrict: 'E',
               scope: {
-                value:'@itemCurrentWidth'
               },
               link: function(scope, element, attrs) {
-
-                     scope.itCurrentWidth = 148;
-
-                    //scope.itCurrentWidth = element.children().first().width();
-
 
                     var onloadItems = $templateCache.get('onload_items.html');
 
@@ -57,11 +49,7 @@
                      handles: 'e,w',
                      resize: function(event, ui){
                        referenceForResizing(element, ui.element);
-                      //ItemData.currentWidth = ui.element.css('width');
-                      scope.$apply(function() {
-                        scope.itCurrentWidth = ui.element.css('width');
-                      });
-
+                       scope.$apply();
                      }
                    });
 
@@ -95,13 +83,11 @@
                                  startValuesWhileResizing(element, ui.element);
                              },
 
-                             // custom handle
+                             // custom handles
                              handles: 'e, w',
                              resize: function(event, ui){
                                 referenceForResizing(element, ui.element);
-                                scope.$apply(function() {
-                                  scope.itCurrentWidth = ui.element.css('width');
-                                });
+                                scope.$apply();
                              }
                            });
 

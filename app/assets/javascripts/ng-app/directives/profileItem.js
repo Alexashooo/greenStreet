@@ -9,7 +9,8 @@
               },
               link: function(scope, element, attrs){
 
-              var manualInput = false;
+               //confirming manual input fron input box
+               var manualInput = false;
 
                 $(document).keypress(function(e) {
                     if(e.which == 13 && !manualInput) {
@@ -43,6 +44,10 @@
                 });
 
 
+               scope.removeItem = function(){
+                  element.parent().empty().remove();
+               };
+              //here is the end of the link function
               }
           };
 

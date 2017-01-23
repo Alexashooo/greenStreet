@@ -39,7 +39,7 @@
 
 .item-menu .options-container .item-remove{
   height: 30px;
-  width: 30px;
+  width: 50px;
   border-width: 1px;
   border-style: solid;
   border-color: grey;
@@ -48,7 +48,7 @@
 }
 
 .item-menu .options-container .width-input{
-  height: 30px;
+  height: 45px;
   width: 50px;
   border-width: 2px;
   border-style: solid;
