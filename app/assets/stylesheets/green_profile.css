@@ -1,7 +1,8 @@
 .green-profile {
-   height:695px;
+   height:100%;
    width:100px;
    border-color: black;
    border-style: solid;
    display:inline-block;
+   vertical-align: top;
 }

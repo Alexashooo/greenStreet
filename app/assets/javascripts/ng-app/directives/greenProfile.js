@@ -1,5 +1,5 @@
 (function() {
-     function greenProfile() {
+     function greenProfile(ItemData, ImageSharing) {
 
           return {
               templateUrl: 'green_profile.html',
@@ -14,7 +14,9 @@
                         connectToSortable: '.street-profile'
                     })
 
-                }
+                };
+
+                scope.images = ImageSharing.greenVehicles;
               }
 
             };
@@ -22,5 +24,5 @@
 
       angular
           .module('greenStreet')
-          .directive('greenProfile', greenProfile);
+          .directive('greenProfile', ['ItemData', 'ImageSharing', greenProfile]);
   })();

@@ -1,5 +1,5 @@
 (function() {
-     function streetProfile($compile, $templateCache, ItemData) {
+     function streetProfile($compile, $templateCache, ItemData, ImageSharing) {
 
           return {
               templateUrl: 'street_profile.html',
@@ -56,7 +56,7 @@
                    element.disableSelection().sortable({
                      placeholder: 'placeholder',
                      // custom handle
-                     handle: '.item-transportmode-pavement, .item-transortmode-picture',
+                     handle: '.item-transportmode-pavement, .item-transportmode-picture',
                      sort: function(event, ui){
                          ui.placeholder.css('width', parseInt(ui.item.css('width'))+extraSpaceWhileSorting);
 
@@ -66,24 +66,26 @@
                      }
                      }).droppable({
                       drop: function(event, ui) {
-                        //prevent profile items to change while drag/drop
+                        //prevent street profile items to change while sorting
                         if($(ui.draggable).hasClass('dirty-item') || $(ui.draggable).hasClass('green-item')){
-                          //remove class if draggable is dropped
-                           $(ui.draggable).removeClass();
-                           //add class if draggabdirtyitemle is dropped
-                           $(ui.draggable).addClass('item-container');
+
+                           console.log($(ui.draggable).attr('id'));
+
+                          //remove classes  and HTML if draggable is dropped
+                           $(ui.draggable).removeClass().empty().addClass('item-container');
+
                             //adjusting height and width
                            $(ui.draggable).height(parseInt($('.street-profile').css('height'))-4);
                            $(ui.draggable).width(itemDefaultWidth);
 
                            //move the list(streetProfile) to left while adding items
                            element.css('left', parseInt(element.css('left'))- parseInt($(ui.draggable).css('width'))/2);
+
                            $(ui.draggable).resizable({
                              start: function(event, ui){
                                  startValuesWhileResizing(element, ui.element);
                              },
 
-                             // custom handles
                              handles: 'e, w',
                              resize: function(event, ui){
                                 referenceForResizing(element, ui.element);
@@ -93,6 +95,8 @@
 
                            //Adding HTML for new items dropped in streetProfile
                            $(ui.draggable).append($compile('<profile-item></profile-item>')(scope));
+
+
                         }
                       }
                     });
@@ -102,5 +106,5 @@
 
       angular
           .module('greenStreet')
-          .directive('streetProfile', ['$compile', '$templateCache', 'ItemData', streetProfile]);
+          .directive('streetProfile', ['$compile', '$templateCache', 'ItemData', 'ImageSharing', streetProfile]);
   })();

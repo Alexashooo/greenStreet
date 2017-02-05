@@ -1,8 +1,10 @@
 (function(){
-    function ItemData($rootScope){
+    function ItemData(){
        var ItemData = {};
 
-      
+       
+
+
 
 
        return ItemData;
@@ -11,5 +13,5 @@
 
     angular
       .module('greenStreet')
-      .factory('ItemData', ['$rootScope', ItemData]);
+      .factory('ItemData', ItemData);
 })();

@@ -16,9 +16,7 @@
            $state.go('landing');
         };
 
-        $scope.$on('devise:login', function(event, currentUser) {
-          // after a login, a hard refresh, a new tab
-        });
+        
 
         $scope.$on('devise:new-session', function(event, currentUser) {
           // user logged in by Auth.login({...})

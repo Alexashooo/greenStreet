@@ -45,9 +45,15 @@ gem 'angular-rails-templates'
 
 gem 'rack-cors', :require => 'rack/cors'
 
+# This gem will configure your application to serve static assets so that you do not need to do this manually in a config file. (from Heroku)
+gem 'rails_12factor', group: :production
+
 
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
+  gem 'rails-assets-leaflet'
 end
 
 

@@ -1,5 +1,5 @@
 (function() {
-     function dirtyProfile() {
+     function dirtyProfile(ItemData, ImageSharing) {
 
           return {
               templateUrl: 'dirty_profile.html',
@@ -13,8 +13,8 @@
                         revert: "invalid",
                         connectToSortable: '.street-profile'
                     })
-
-                }
+                };
+                scope.images = ImageSharing.carbonVehicles;
               }
 
             };
@@ -22,5 +22,5 @@
 
       angular
           .module('greenStreet')
-          .directive('dirtyProfile', dirtyProfile);
+          .directive('dirtyProfile', ['ItemData', 'ImageSharing', dirtyProfile]);
   })();

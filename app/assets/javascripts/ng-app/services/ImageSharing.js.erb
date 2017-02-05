@@ -1,0 +1,31 @@
+(function(){
+    function ImageSharing(){
+       var ImageSharing = {};
+
+       ImageSharing.carbonVehicles = {
+          car: {
+            front: '<%=asset_path("carbonVehicles/car-front-small.jpg")%>',
+            back:''
+          },
+          bus: {
+            front:'<%=asset_path("carbonVehicles/bus-front-small.jpg")%>',
+            back:''
+          }
+       };
+
+
+       ImageSharing.greenVehicles = {
+          cyclist: {
+            front:'<%=asset_path("greenVehicles/cyclist-front-small.jpg")%>',
+            back:''
+          }
+       };
+
+       return ImageSharing;
+
+    }
+
+    angular
+      .module('greenStreet')
+      .factory('ImageSharing' , ImageSharing);
+})();

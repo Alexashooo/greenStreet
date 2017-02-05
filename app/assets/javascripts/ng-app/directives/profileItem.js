@@ -18,7 +18,6 @@
                     }
                 });
 
-
                 scope.currentElement = {
                    parentWidth: element.parent().width()
                 };
@@ -47,6 +46,9 @@
                scope.removeItem = function(){
                   element.parent().empty().remove();
                };
+
+               var imageId = ItemData.imageId;
+
               //here is the end of the link function
               }
           };
