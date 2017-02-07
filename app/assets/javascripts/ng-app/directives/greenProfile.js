@@ -10,13 +10,13 @@
                 for(var i =0; i < element[0].children.length; i++) {
                     angular.element(element[0].children[i]).draggable({
                         helper: 'clone',
-                        revert: "invalid",
+                        revert: 'invalid',
                         connectToSortable: '.street-profile'
                     })
 
                 };
-
-                scope.images = ImageSharing.greenVehicles;
+                scope.imagesTransport = ImageSharing.transport;
+                scope.imagesFacility = ImageSharing.facility;
               }
 
             };

@@ -47,7 +47,7 @@
                   element.parent().empty().remove();
                };
 
-               var imageId = ItemData.imageId;
+               scope.image = ItemData.bigImage;
 
               //here is the end of the link function
               }

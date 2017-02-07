@@ -2,24 +2,36 @@
     function ImageSharing(){
        var ImageSharing = {};
 
-       ImageSharing.carbonVehicles = {
-          car: {
-            front: '<%=asset_path("carbonVehicles/car-front-small.jpg")%>',
+       ImageSharing.transport = {
+          "carSmall": {
+            front: '<%=asset_path("transport/dirty/carSmallFront.jpg")%>'
+          },
+          "carBig": {
+            front: '<%=asset_path("transport/dirty/carBigFront.jpg")%>',
             back:''
           },
-          bus: {
-            front:'<%=asset_path("carbonVehicles/bus-front-small.jpg")%>',
+          "busSmall": {
+            front:'<%=asset_path("transport/dirty/busSmallFront.jpg")%>'
+          },
+          "busBig": {
+            front:'<%=asset_path("transport/dirty/busBigFront.jpg")%>',
+            back:''
+          },
+          "cyclistSmall": {
+            front:'<%=asset_path("transport/green/cyclistSmallFront.jpg")%>'
+          },
+          "cyclistBig": {
+            front:'<%=asset_path("transport/green/cyclistBigFront.jpg")%>',
             back:''
           }
        };
 
+       ImageSharing.facilities = {};
 
-       ImageSharing.greenVehicles = {
-          cyclist: {
-            front:'<%=asset_path("greenVehicles/cyclist-front-small.jpg")%>',
-            back:''
-          }
-       };
+
+
+
+
 
        return ImageSharing;
 

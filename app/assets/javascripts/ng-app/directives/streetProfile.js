@@ -1,6 +1,7 @@
 (function() {
      function streetProfile($compile, $templateCache, ItemData, ImageSharing) {
 
+
           return {
               templateUrl: 'street_profile.html',
               replace: true,
@@ -59,17 +60,14 @@
                      handle: '.item-transportmode-pavement, .item-transportmode-picture',
                      sort: function(event, ui){
                          ui.placeholder.css('width', parseInt(ui.item.css('width'))+extraSpaceWhileSorting);
-
-                     },
-                     stop: function(event, ui){
-                         //console.log(ui.item.css('margin-left'), ui.item.css('margin-right'));
                      }
                      }).droppable({
                       drop: function(event, ui) {
                         //prevent street profile items to change while sorting
                         if($(ui.draggable).hasClass('dirty-item') || $(ui.draggable).hasClass('green-item')){
 
-                           console.log($(ui.draggable).attr('id'));
+                           //console.log($(ui.draggable).find('img').attr("id").slice(-5));
+                           ItemData.setBigImage($(ui.draggable).find('img').attr("id"));
 
                           //remove classes  and HTML if draggable is dropped
                            $(ui.draggable).removeClass().empty().addClass('item-container');
