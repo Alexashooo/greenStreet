@@ -29,7 +29,7 @@
        //Sending data to Devise to Sign In
        UserData.sendUserDataSignIn = function(user_credentials,config) {
             Auth.login(user_credentials, config).then(function(user) {
-              console.log(user); // => {id: 1, ect: '...'}
+              console.log(user); 
             }, function(error) {
               // Authentication failed...
             });
