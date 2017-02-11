@@ -7,20 +7,32 @@
               restrict: 'E',
               scope: {},
               link: function(scope, element, attrs) {
-                for(var i =0; i < element[0].children.length; i++) {
-                    angular.element(element[0].children[i]).draggable({
-                        helper: 'clone',
-                        revert: 'invalid',
-                        connectToSortable: '.street-profile'
-                    })
-                };
+
+               var dirtyItemsContainer = angular.element('.dirty-items-container');
+
+               dirtyItemsContainer.children().draggable({
+                  helper: 'clone',
+                  revert: 'invalid',
+                  connectToSortable: '.street-profile'
+               })
 
                scope.imagesTransport = ImageSharing.transport;
                scope.imagesFacility = ImageSharing.facility;
 
+
+               scope.scrollUp = function(){
+                  dirtyItemsContainer.scrollTop(dirtyItemsContainer.scrollTop() - 25);
+               };
+
+               scope.scrollDown = function(){
+                  dirtyItemsContainer.scrollTop(dirtyItemsContainer.scrollTop() + 25);
+               };
+
+
               }
 
             };
+
       }
 
       angular

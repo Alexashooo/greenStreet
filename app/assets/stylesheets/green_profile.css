@@ -1,8 +1,17 @@
 .green-profile {
-   height:100%;
    width:100px;
    border-color: black;
    border-style: solid;
    display:inline-block;
    vertical-align: top;
+   overflow-x: hidden;
+   overflow-y: hidden;
+}
+
+.green-profile .green-items-container {
+  height:500px;
+  border-color: blue;
+  border-style: solid;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }

@@ -1,8 +1,16 @@
 .dirty-profile {
-   height:100%;
    width:100px;
    border-color: black;
    border-style: solid;
    display:inline-block;
-   vertical-align: top;   
+   vertical-align: top;
+}
+
+.dirty-profile .dirty-items-container {
+  height:500px;
+  border-color: blue;
+  border-style: solid;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
 }

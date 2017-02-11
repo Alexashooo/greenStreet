@@ -1,5 +1,14 @@
 <div class="dirty-profile">
-    <div class="dirty-item"><img id="carSmallFront" ng-src="{{imagesTransport.carSmall.front}}"></div>
-    <div class="dirty-item"><img id="busSmallFront" ng-src="{{imagesTransport.busSmall.front}}"></div>
-    <div class="dirty-item"></div>
+      <button class="scroll-button-top" ng-click="scrollUp()"></button>
+      <div class="dirty-items-container">
+          <div class="dirty-item"><img id="carSmallFront" ng-src="{{imagesTransport.carSmall.front}}"></div>
+          <div class="dirty-item"><img id="busSmallFront" ng-src="{{imagesTransport.busSmall.front}}"></div>
+          <div class="dirty-item"></div>
+          <div class="dirty-item"></div>
+          <div class="dirty-item"></div>
+          <div class="dirty-item"></div>
+          <div class="dirty-item"></div>
+          <div class="dirty-item"></div>
+      </div>
+      <button class="scroll-button-bottom" ng-click="scrollDown()"></button>
 </div>

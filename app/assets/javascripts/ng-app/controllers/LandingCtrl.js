@@ -1,5 +1,5 @@
 (function() {
-     function LandingCtrl($scope, UserData, $resource, Auth) {
+     function LandingCtrl($scope, UserData, $resource, Auth, $rootScope) {
 
          $scope.signOut = function() {
            UserData.userSignOut();
@@ -14,19 +14,13 @@
            }
          };
 
+         $rootScope.$watch(function(){
+              console.log("Angular started to digest the code");
+         });
 
-
-
-
-         //this works
-         /**
-         this.first_street_profile = {};
-         this.first_street_profile = UserData.first_streetprofile;
-         this.destroy_second_street_profile = UserData.Streetprofiles.destroy({"id": 3});
-         */
      }
 
      angular
          .module('greenStreet')
-         .controller('LandingCtrl', ['$scope', 'UserData', '$resource', 'Auth', LandingCtrl]);
+         .controller('LandingCtrl', ['$scope', 'UserData', '$resource', 'Auth', '$rootScope', LandingCtrl]);
  })();

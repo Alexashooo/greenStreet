@@ -5,3 +5,17 @@
   white-space:nowrap;
   display:inline-block;
 }
+
+.scroll-button-top {
+   width: 80px;
+   height: 70px;
+   border-style: solid;
+   border-color: pink;
+}
+
+.scroll-button-bottom {
+  width: 80px;
+  height: 70px;
+  border-style: solid;
+  border-color: pink;
+}
