@@ -17,6 +17,24 @@
                 url: '/',
                 controller: 'UserSignInCtrl as userSignIn',
                 templateUrl: 'user_signin.html'
+            })
+
+            .state('UsersStreetProfiles', {
+                url:'/',
+                controller: 'UsersStreetProfilesCtrl as usersStreetProfiles',
+                templateUrl: 'users_street_profiles.html'
+            })
+
+           .state('landing.saveStreetProfile', {
+                url:'/save_profile',
+                templateUrl: 'save_profile.html',
+                controller: 'SaveStreetProfileCtrl as saveStreetProfile'
+            })
+
+            .state('landing.enterStreetProfileData', {
+                url:'/save_form',
+                templateUrl: 'save_profile_form.html',
+                controller: 'EnterStreetProfileDataCtrl as enterStreetProfileData'
             });
 
 

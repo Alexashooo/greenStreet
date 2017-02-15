@@ -29,7 +29,7 @@
        //Sending data to Devise to Sign In
        UserData.sendUserDataSignIn = function(user_credentials,config) {
             Auth.login(user_credentials, config).then(function(user) {
-              console.log(user); 
+              console.log(user);
             }, function(error) {
               // Authentication failed...
             });
@@ -44,21 +44,18 @@
        };
 
 
+       var streetProfilesApi = $resource('/api/v1/streetprofiles/:id', {'save': {method: 'POST'}});
 
-       //This works, getting current_user
-       //UserData.current_user = Auth.currentUser();
+       //Save streetProfile data by user
+       UserData.saveStreetProfile = function(){
+            streetProfilesApi.save({
+                name: 'Alexas first',
+                street_configuration: UserData.currentStateOfStreetprofile(),
+                user_id: Auth._currentUser.id
+           });
+           //console.log(UserData.currentStateOfStreetprofile());
+       };
 
-       //this works
-       /**
-       UserData.Streetprofiles = $resource("/streetprofiles/:id.json", null,
-          {
-            'query': {method: 'GET', isArray:false},
-            'destroy': { method: 'DELETE' }
-          }
-       );
-
-       UserData.first_streetprofile = UserData.Streetprofiles.query({"id": 1});
-       */
 
 
        return UserData;

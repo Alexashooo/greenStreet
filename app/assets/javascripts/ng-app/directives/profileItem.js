@@ -33,6 +33,7 @@
                     return element.parent().width();
                 };
 
+                //applyng new value on element 'width' when manual input
                 scope.$watch('updateWidth()', function(oldValue, newValue){
                   if(newValue && !manualInput){
                       scope.currentElement.parentWidth = newValue;
@@ -47,9 +48,11 @@
                   element.parent().empty().remove();
                };
 
-               scope.image = ItemData.bigImage;
+                scope.image = ItemData.bigImage;
 
-              //here is the end of the link function
+                scope.imageID = ItemData.newImageID;
+
+
               }
           };
 

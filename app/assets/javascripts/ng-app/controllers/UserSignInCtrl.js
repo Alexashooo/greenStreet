@@ -16,14 +16,11 @@
            $state.go('landing');
         };
 
-        
+
 
         $scope.$on('devise:new-session', function(event, currentUser) {
           // user logged in by Auth.login({...})
         });
-
-
-
 
 
          //this works

@@ -1,5 +1,5 @@
 (function() {
-     function streetProfile($compile, $templateCache, ItemData, ImageSharing) {
+     function streetProfile($compile, $templateCache, ItemData, ImageSharing, UserData) {
 
 
           return {
@@ -10,13 +10,35 @@
               },
               link: function(scope, element, attrs) {
 
+                    // cashing items to load with first time usage
                     var onloadItems = $templateCache.get('onload_items.html');
 
+                    //adding "default" items(default profile) on first load
                     var deafultElementsOnStart = function(onloadItems){
                         element.append($compile(onloadItems)(scope));
                     };
 
                     deafultElementsOnStart(onloadItems);
+
+                    //returns string with atributes of elements in items that makes current state of the street profile
+                    var currentStateOfStreetprofile = function(){
+                        var streetProfileString = "";
+                        for (var i = 0; i < element[0].children.length; i++) {
+                            var imgID = element[0].children[i].querySelector("img").getAttribute('id');
+                            var elementWidth = element[0].children[i].querySelector(".profile-item-container").offsetWidth;
+                            var directionIndicator = "left";  ///!!!!!!!!!!!!!!!!!!!!!!this is example, should be implemented
+                            if(i===element[0].children.length-1){
+                                streetProfileString =  streetProfileString + imgID + "-" + elementWidth + "-" + directionIndicator; //use REGEX?!!!!!!!!!!!!??????????
+                            } else {
+                                streetProfileString =  streetProfileString + imgID + "-" + elementWidth + "-" + directionIndicator + ",";
+                            }
+                        }
+                        return streetProfileString;
+                    }
+
+
+                    UserData.currentStateOfStreetprofile = currentStateOfStreetprofile;
+
 
                     //defined values before resizing starts and they get new values from selected element
                     var itemStartWidth = 0;
@@ -27,7 +49,7 @@
                     //item default Width applied on dropped element
                     var itemDefaultWidth = 148;
 
-                    //item (sortable element) start width and start "left" position of its parent (street profile)
+                    //item (sortable element) start width and start "left" position of it's parent (street profile)
                     //while risizing
                     var startValuesWhileResizing = function(element, child){
                           itemStartWidth = parseInt(child.css('width'));
@@ -66,8 +88,11 @@
                         //prevent street profile items to change while sorting
                         if($(ui.draggable).hasClass('dirty-item') || $(ui.draggable).hasClass('green-item')){
 
-                           //console.log($(ui.draggable).find('img').attr("id").slice(-5));
+                           //setting a new "Big" image when dropped
                            ItemData.setBigImage($(ui.draggable).find('img').attr("id"));
+
+                           //setting a new ID when dropped
+                           ItemData.setNewImageID($(ui.draggable).find('img').attr("id"));
 
                           //remove classes  and HTML if draggable is dropped
                            $(ui.draggable).removeClass().empty().addClass('item-container');
@@ -79,6 +104,7 @@
                            //move the list(streetProfile) to left while adding items
                            element.css('left', parseInt(element.css('left'))- parseInt($(ui.draggable).css('width'))/2);
 
+                           //making street profile elements resizible
                            $(ui.draggable).resizable({
                              start: function(event, ui){
                                  startValuesWhileResizing(element, ui.element);
@@ -104,5 +130,5 @@
 
       angular
           .module('greenStreet')
-          .directive('streetProfile', ['$compile', '$templateCache', 'ItemData', 'ImageSharing', streetProfile]);
+          .directive('streetProfile', ['$compile', '$templateCache', 'ItemData', 'ImageSharing', 'UserData', streetProfile]);
   })();

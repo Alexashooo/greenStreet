@@ -24,16 +24,18 @@
       </form>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a  ng-hide="signInOutRegVisibility()" ui-sref="userSignIn">Sign In</a></li>
-        <li><a  ng-hide="signInOutRegVisibility()" ui-sref="userSignUp">Sign Up</a></li>
-        <li><a  ng-show="signInOutRegVisibility()" ng-click="signOut()">Sign Out</a></li>
+        <li><a  ng-hide="signInOutRegVisibility()" ui-sref='userSignIn'>Sign In</a></li>
+        <li><a  ng-hide="signInOutRegVisibility()" ui-sref='userSignUp'>Sign Up</a></li>
+        <li><a  ng-show="signInOutRegVisibility()" ui-sref='.saveStreetProfile'>Save</a></li>
+        <li><a  ng-show="signInOutRegVisibility()" ng-click='signOut()'>Sign Out</a></li>
       </ul>
-
     </div>
 
   </div>
 </nav>
 </div>
+
+<div ui-view class="save-street-profile"></div>
 
 <div class="profile-container">
       <dirty-profile></dirty-profile>
