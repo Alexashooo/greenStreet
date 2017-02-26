@@ -11,9 +11,6 @@
             $state.go('landing');
         }
 
-        $scope.openSaveForm = function(){
-            $state.go('.enterStreetProfileData');
-        };
 
       }
 
