@@ -11,7 +11,15 @@
             var vehicleImg = imageID.slice(0,-10)+ "Big";
             ItemData.bigImage = ImageSharing.transport[vehicleImg].front;
             ItemData.imageFactor = ImageSharing.transport[vehicleImg].scaleFactor;
-         } else {
+         }
+         //remove this after test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         //make separate option to change direction of the vehicle
+         else if(imageID != null && imageID.slice(-9) === 'SmallBack'){
+           var vehicleImg = imageID.slice(0,-9)+ "Big";
+           ItemData.bigImage = ImageSharing.transport[vehicleImg].back;
+           ItemData.imageFactor = ImageSharing.transport[vehicleImg].scaleFactor;
+         }
+           else {
            ItemData.bigImage = "";
 
          }

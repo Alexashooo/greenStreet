@@ -2,7 +2,7 @@
     width: 90px;
     height: 70px;
     border-color: green;
-    border-style: solid;
+  /*  border-style: solid; */
     border-width: 2px;
     position: relative;
 }

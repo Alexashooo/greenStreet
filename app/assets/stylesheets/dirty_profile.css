@@ -1,7 +1,7 @@
 .dirty-profile {
    width:100px;
    border-color: black;
-   border-style: solid;
+/*   border-style: solid; */
    display:inline-block;
    vertical-align: top;
 }
@@ -9,7 +9,7 @@
 .dirty-profile .dirty-items-container {
   height:500px;
   border-color: blue;
-  border-style: solid;
+/*  border-style: solid; */
   overflow-x: hidden;
   overflow-y: hidden;
 

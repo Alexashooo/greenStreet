@@ -1,24 +1,44 @@
-.building-left {
+.buildings-container-left {
    height:80%;
    width:150px;
    border-color: brown;
-   border-style: solid;
+/*   border-style: solid; */
    border-width: 1px;
    display:inline-block;
    vertical-align: top;
    margin-left: 0;
    padding-left: 0;
+   position: relative;
 }
 
 
-.building-right {
+.buildings-container-right {
   height:80%;
   width:150px;
   border-color: brown;
-  border-style: solid;
+/*  border-style: solid; */
   border-width: 1px;
   display:inline-block;
   vertical-align: top;
+  position: relative;
+}
 
+.buildings-container-left  .building-image{
+    width:150px;
+    height:auto;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    left:0;
+}
 
+.buildings-container-right  .building-image{
+  width:150px;
+  height:auto;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  left:0;
 }
