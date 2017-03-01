@@ -1,6 +1,6 @@
 .profile-item-container {
     width: 100%;
-    height: 695px;
+    height: 100%;
 }
 
 .item-menu {
@@ -19,7 +19,7 @@
 
 .item-menu .options-container{
     width:100%;
-    height: 50px;
+    height: 33%;
     border-width: 1px;
     border-style: solid;
     border-color: blue;
@@ -59,7 +59,6 @@
 
 
 
-
 .item-resize {
     width: 100%;
     height: 36%;
@@ -73,23 +72,32 @@
 }
 
 
-
-.item-transportmode-picture {
+.item-transportmode {
     max-width: 100%;
     height: 22%;
     max-width: 800px;
     border-color: green;
     border-style: solid;
     border-width: 1px;
-    vertical-align: top;
+    position: relative;
     margin:0;
     padding: 0;
 }
 
+.item-transportmode .big-image{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    left:0;
+    right:0;
+}
 
 
 .item-transportmode-pavement {
     max-width: 100%;
+    background-color: #D3D3D3;
     height: 6%;
     max-width: 800px;
     border-color: green;

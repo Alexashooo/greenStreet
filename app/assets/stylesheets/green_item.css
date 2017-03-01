@@ -4,4 +4,17 @@
   border-color: green;
   border-style: solid;
   border-width: 2px;
+  position: relative;
+}
+
+.small-image-green {
+    max-height: 80%;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    left:0;
+    right:0;
 }

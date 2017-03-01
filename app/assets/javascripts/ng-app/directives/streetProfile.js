@@ -1,7 +1,6 @@
 (function() {
      function streetProfile($compile, $templateCache, ItemData, ImageSharing, UserData) {
 
-
           return {
               templateUrl: 'street_profile.html',
               replace: true,
@@ -26,7 +25,7 @@
                         for (var i = 0; i < element[0].children.length; i++) {
                             var imgID = element[0].children[i].querySelector("img").getAttribute('id');
                             var elementWidth = element[0].children[i].querySelector(".profile-item-container").offsetWidth;
-                            var directionIndicator = "left";  ///!!!!!!!!!!!!!!!!!!!!!!this is example, should be implemented
+                            var directionIndicator = "left";  ///!!!!!!!!!!!!!!!!!!!!!!this is example, more options should be implemented
                             if(i===element[0].children.length-1){
                                 streetProfileString =  streetProfileString + imgID + "-" + elementWidth + "-" + directionIndicator; //use REGEX?!!!!!!!!!!!!??????????
                             } else {
@@ -79,7 +78,7 @@
                    element.disableSelection().sortable({
                      placeholder: 'placeholder',
                      // custom handle
-                     handle: '.item-transportmode-pavement, .item-transportmode-picture',
+                     handle: '.item-transportmode-pavement, .item-transportmode',
                      sort: function(event, ui){
                          ui.placeholder.css('width', parseInt(ui.item.css('width'))+extraSpaceWhileSorting);
                      }
@@ -121,7 +120,7 @@
                            $(ui.draggable).append($compile('<profile-item></profile-item>')(scope));
 
 
-                        }
+                         }
                       }
                     });
               }

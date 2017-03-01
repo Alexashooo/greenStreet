@@ -48,9 +48,13 @@
                   element.parent().empty().remove();
                };
 
-                scope.image = ItemData.bigImage;
-
+                scope.imageUrl = ItemData.bigImage;
                 scope.imageID = ItemData.newImageID;
+                scope.imageScale = ItemData.imageFactor;
+
+                scope.setImageHeight = function(){
+                   return ItemData.referenceScale * scope.imageScale;
+                }
 
 
               }

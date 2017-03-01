@@ -9,8 +9,8 @@
     </div>
 
     <div class="item-resize"></div>
-    <div class="item-transportmode-picture">
-         <img id="{{imageID}}" ng-src="{{image}}">
+    <div class="item-transportmode">
+        <img class='big-image' ng-style="{'width':'auto', 'height':setImageHeight()}" id="{{imageID}}" ng-src="{{imageUrl}}" scale="{{imageScale}}">
     </div>
     <div class="item-transportmode-pavement"></div>
     <div class="item-dimensions"></div>
