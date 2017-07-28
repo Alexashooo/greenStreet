@@ -42,6 +42,7 @@ gem 'autoprefixer-rails'
 gem 'angularjs-rails'
 gem 'bower-rails'
 gem 'angular-rails-templates'
+gem 'active_model_serializers'
 
 gem 'rack-cors', :require => 'rack/cors'
 
