@@ -1,5 +1,5 @@
 (function() {
-     function config($stateProvider, $locationProvider, $resourceProvider, AuthProvider) {
+     function config($stateProvider, $locationProvider, $resourceProvider, AuthProvider, $urlRouterProvider) {
          $stateProvider
             .state('landing', {
                 url: '/',
@@ -37,6 +37,7 @@
                 controller: 'EnterStreetProfileDataCtrl as enterStreetProfileData'
             });
 
+         $urlRouterProvider.otherwise('/');
 
          $locationProvider
             .html5Mode({

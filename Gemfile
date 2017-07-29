@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
-gem 'angular-ui-router-rails'
+#gem 'angular-ui-router-rails'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'

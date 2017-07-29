@@ -1,5 +1,5 @@
 (function() {
-     function UserData($resource, Auth) {
+     function UserData($resource, Auth, $state) {
        var UserData = {};
 
        UserData.user_credentials = {};
@@ -21,7 +21,8 @@
           Auth.register(user_credentials, config).then(function(registeredUser) {
               console.log(registeredUser);
           }, function(error) {
-              // Registration failed...
+               alert("User with the email address already exist!");
+               $state.go('userSignUp');
           });
        };
 
@@ -31,7 +32,8 @@
             Auth.login(user_credentials, config).then(function(user) {
               console.log(user);
             }, function(error) {
-              // Authentication failed...
+              alert("Sign In failed, please check you email and/or password!");
+              $state.go('userSignIn');
             });
        };
 
@@ -63,5 +65,5 @@
 
 angular
    .module('greenStreet')
-   .factory('UserData', ['$resource', 'Auth', UserData]);
+   .factory('UserData', ['$resource', 'Auth', '$state', UserData]);
 })();
