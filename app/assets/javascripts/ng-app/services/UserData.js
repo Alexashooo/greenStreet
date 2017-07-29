@@ -19,7 +19,7 @@
        //Sending data to Devise to register
        UserData.sendUserDataReg = function(user_credentials, config) {
           Auth.register(user_credentials, config).then(function(registeredUser) {
-              console.log(registeredUser);
+              console.log(registeredUser.id);
           }, function(error) {
                alert("User with the email address already exist!");
                $state.go('userSignUp');
@@ -30,7 +30,7 @@
        //Sending data to Devise to Sign In
        UserData.sendUserDataSignIn = function(user_credentials,config) {
             Auth.login(user_credentials, config).then(function(user) {
-              console.log(user);
+              console.log(user.email);
             }, function(error) {
               alert("Sign In failed, please check you email and/or password!");
               $state.go('userSignIn');
@@ -39,19 +39,19 @@
 
        UserData.userSignOut = function() {
             Auth.logout(UserData.configSignOut).then(function(oldUser) {
-                alert(oldUser.email + "you're signed out now.");
+                alert("You're signed out now.");
             }, function(error) {
                 // An error occurred logging out.
             });
        };
 
 
-       var streetProfilesApi = $resource('/api/v1/streetprofiles/:id', {'save': {method: 'POST'}});
+       var streetProfilesApi = $resource('streetprofiles/:id', {'save': {method: 'POST'}});
 
        //Save streetProfile data by user
        UserData.saveStreetProfile = function(){
             streetProfilesApi.save({
-                name: 'Alexas first',
+                name: 'My profile',
                 street_configuration: UserData.currentStateOfStreetprofile(),
                 user_id: Auth._currentUser.id
            });
