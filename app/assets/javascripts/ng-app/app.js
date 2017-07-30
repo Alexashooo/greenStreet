@@ -8,13 +8,13 @@
             })
 
             .state('userSignUp', {
-                url: '/',
+                url: '/signup',
                 controller: 'UserSignUpCtrl as userSignUp',
                 templateUrl: 'user_signup.html'
             })
 
             .state('userSignIn', {
-                url: '/',
+                url: '/signin',
                 controller: 'UserSignInCtrl as userSignIn',
                 templateUrl: 'user_signin.html'
             })

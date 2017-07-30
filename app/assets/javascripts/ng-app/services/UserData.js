@@ -41,7 +41,7 @@
             Auth.logout(UserData.configSignOut).then(function(oldUser) {
                 alert("You're signed out now.");
             }, function(error) {
-                // An error occurred logging out.
+                alert("Sign Out failed, please try again!");
             });
        };
 

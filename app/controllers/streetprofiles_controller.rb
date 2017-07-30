@@ -1,4 +1,5 @@
 class StreetprofilesController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @streetprofiles = Streetprofile.all

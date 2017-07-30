@@ -44,6 +44,8 @@ gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'active_model_serializers'
 
+gem 'angular_rails_csrf'
+
 gem 'rack-cors', :require => 'rack/cors'
 
 # This gem will configure your application to serve static assets so that you do not need to do this manually in a config file. (from Heroku)

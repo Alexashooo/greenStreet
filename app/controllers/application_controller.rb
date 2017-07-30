@@ -17,4 +17,12 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     end
 
+    def authenticate_user!
+      if user_signed_in?
+        super
+      else
+        render json: {error: "User is not signed in!", status: 400}, status: 400
+      end
+    end
+
 end
