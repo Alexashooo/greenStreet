@@ -135,6 +135,7 @@ GEM
       rails-assets-jquery (>= 1.9.1, < 4)
     rails-assets-jquery (3.2.1)
     rails-assets-leaflet (1.1.0)
+    rails-assets-ng-cookies (1.1.1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -228,6 +229,7 @@ DEPENDENCIES
   rails-assets-angular-devise!
   rails-assets-bootstrap!
   rails-assets-leaflet!
+  rails-assets-ng-cookies!
   rails_12factor
   sass-rails (~> 5.0)
   spring

@@ -43,6 +43,7 @@ gem 'angularjs-rails'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'active_model_serializers'
+gem 'rails-assets-ng-cookies', source: 'https://rails-assets.org'
 
 gem 'angular_rails_csrf'
 

@@ -49,6 +49,6 @@
      }
 
     angular
-         .module('greenStreet', ['ui.router', 'templates', 'ngResource', 'Devise'])
+         .module('greenStreet', ['ui.router', 'templates', 'ngResource', 'Devise', 'ngCookie'])
          .config(config);
 })();

@@ -1,5 +1,5 @@
 (function() {
-     function UserData($resource, Auth, $state) {
+     function UserData($resource, Auth, $state, UserPersistence) {
        var UserData = {};
 
        UserData.user_credentials = {};
@@ -19,6 +19,7 @@
        //Sending data to Devise to register
        UserData.sendUserDataReg = function(user_credentials, config) {
           Auth.register(user_credentials, config).then(function(registeredUser) {
+              //UserPersistence.setCookieData(registeredUser.email);
               console.log(registeredUser.id);
           }, function(error) {
                alert("User with the email address already exist!");
@@ -30,7 +31,8 @@
        //Sending data to Devise to Sign In
        UserData.sendUserDataSignIn = function(user_credentials,config) {
             Auth.login(user_credentials, config).then(function(user) {
-              console.log(user.email);
+              UserPersistence.setCookieData(user.email);
+              console.log(UserPersistence.getCookieData());
             }, function(error) {
               alert("Sign In failed, please check you email and/or password!");
               $state.go('userSignIn');
@@ -65,5 +67,5 @@
 
 angular
    .module('greenStreet')
-   .factory('UserData', ['$resource', 'Auth', '$state', UserData]);
+   .factory('UserData', ['$resource', 'Auth', '$state', 'UserPersistence',UserData]);
 })();
