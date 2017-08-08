@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
+gem 'rack-cors', :require => 'rack/cors'
 
 #gem 'angular-ui-router-rails'
 
@@ -43,11 +44,11 @@ gem 'angularjs-rails'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'active_model_serializers'
-gem 'rails-assets-ng-cookies', source: 'https://rails-assets.org'
+
 
 gem 'angular_rails_csrf'
 
-gem 'rack-cors', :require => 'rack/cors'
+
 
 # This gem will configure your application to serve static assets so that you do not need to do this manually in a config file. (from Heroku)
 gem 'rails_12factor', group: :production

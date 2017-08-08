@@ -1,5 +1,5 @@
 (function() {
-     function config($stateProvider, $locationProvider, $resourceProvider, AuthProvider, $urlRouterProvider) {
+     function config($stateProvider, $locationProvider, $resourceProvider, AuthProvider, $urlRouterProvider, $httpProvider) {
          $stateProvider
             .state('landing', {
                 url: '/',
@@ -46,9 +46,18 @@
             });
 
         $resourceProvider.defaults.stripTrailingSlashes = false;
+
+        $httpProvider.defaults.withCredentials = true;
      }
 
     angular
-         .module('greenStreet', ['ui.router', 'templates', 'ngResource', 'Devise', 'ngCookie'])
+         .module('greenStreet', ['ui.router', 'templates', 'ngResource', 'Devise'])
+         .run(['Auth', function (Auth) {
+                          Auth.currentUser().then(function(user) {
+                              console.log(user);
+                              console.log(Auth._currentUser);
+                          });
+                       }
+          ])
          .config(config);
 })();

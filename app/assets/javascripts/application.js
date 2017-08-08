@@ -22,5 +22,4 @@
 //= require_tree ../templates
 //= require angular-ui-router
 //= require angular-devise
-//= require ng-cookies
 //= require_tree .

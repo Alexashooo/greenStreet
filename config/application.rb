@@ -13,13 +13,13 @@ module GreenStreet
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
+        resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :head]
       end
     end
 
     config.to_prepare do
       DeviseController.respond_to :html, :json
     end
-    
+
   end
 end
