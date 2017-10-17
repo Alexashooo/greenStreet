@@ -51,7 +51,7 @@
      }
 
     angular
-         .module('greenStreet', ['ui.router', 'templates', 'ngResource', 'Devise'])
+         .module('greenStreet', ['ui.router', 'templates', 'ngResource', 'Devise', 'angularModalService'])
          .run(['Auth', function (Auth) {
                           Auth.currentUser().then(function(user) {
                               console.log(user);

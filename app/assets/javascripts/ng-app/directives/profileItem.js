@@ -1,5 +1,5 @@
 (function() {
-      function profileItem(ItemData, $document){
+      function profileItem(ItemData, $document, ModalService){
 
           return {
               templateUrl: 'profile_item.html',
@@ -54,7 +54,22 @@
 
                 scope.setImageHeight = function(){
                    return ItemData.referenceScale * scope.imageScale;
-                }
+                };
+
+                //showing modal with item extra options
+                scope.showItemExtraOptions = function(){
+                  ModalService.showModal({
+                    templateUrl: "item_extra_options.html",
+                    controller: function(){
+
+                    }
+                  }).then(function(modal) {
+                    modal.element.modal();
+                    modal.close.then(function(result) {
+
+                    });
+                  });
+                };
 
 
               }
@@ -64,5 +79,5 @@
 
       angular
           .module('greenStreet')
-          .directive('profileItem', ['ItemData', '$document', profileItem]);
+          .directive('profileItem', ['ItemData', '$document', 'ModalService', profileItem]);
 })();

@@ -157,10 +157,29 @@
     padding: 0;
 }
 
+
 .item-transportmode-pavement:hover{
    cursor: pointer;
 }
 
+.item-transportmode-pavement .button-extra-options {
+    width:40px;
+    height:90%;
+    position:relative;
+    left:0;
+    right:0;
+    margin:auto;
+    top:5%;
+    border:1px red solid;
+}
+
+.item-extra-options {
+    width:150px;
+    height:50px;
+    border:3px black solid;
+    border-radius: 10px;
+
+}
 
 .item-dimensions {
     max-width: 100%;
