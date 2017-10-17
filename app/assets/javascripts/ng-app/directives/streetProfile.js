@@ -67,11 +67,18 @@
                    element.children().resizable({
                      start: function(event, ui){
                            startValuesWhileResizing(element, ui.element);
+                           //because resizable - handle is in async related to the element and at one moment stops to hover
+                           ui.element.find('.options-container').css("display", "block");
                      },
                      handles: 'e,w',
                      resize: function(event, ui){
                        referenceForResizing(element, ui.element);
                        scope.$apply();
+
+                     },
+                     stop: function(event, ui){
+                       //because resizable - handle is in async related to the element and at one moment stops to hover
+                       ui.element.find('.options-container').css("display", "");
                      }
                    });
 
@@ -97,7 +104,7 @@
                            $(ui.draggable).removeClass().empty().addClass('item-container');
 
                             //adjusting height and width
-                           $(ui.draggable).height(parseInt($('.street-profile').css('height'))-4);
+                           $(ui.draggable).height(parseInt($('.street-profile').css('height')));
                            $(ui.draggable).width(itemDefaultWidth);
 
                            //move the list(streetProfile) to left while adding items
@@ -107,19 +114,23 @@
                            $(ui.draggable).resizable({
                              start: function(event, ui){
                                  startValuesWhileResizing(element, ui.element);
+                                 //because resizable - handle is in async related to the element and at one moment stops to hover
+                                 ui.element.find('.options-container').css("display", "block");
                              },
 
                              handles: 'e, w',
                              resize: function(event, ui){
                                 referenceForResizing(element, ui.element);
                                 scope.$apply();
+                             },
+                             stop: function(event, ui){
+                               //because resizable - handle is in async related to the element and at one moment stops to hover
+                               ui.element.find('.options-container').css("display", "");
                              }
                            });
 
                            //Adding HTML for new items dropped in streetProfile
                            $(ui.draggable).append($compile('<profile-item></profile-item>')(scope));
-
-
                          }
                       }
                     });

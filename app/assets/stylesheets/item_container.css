@@ -13,6 +13,10 @@
     padding: 0;
 }
 
+.item-container .profile-item-container:hover .item-menu .options-container{
+    display:block;
+}
+
 .placeholder{
   display:inline-block;
 }

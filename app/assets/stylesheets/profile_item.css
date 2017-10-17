@@ -3,6 +3,7 @@
     height: 100%;
 }
 
+
 .item-menu {
     max-width: 100%;
     height: 22%;
@@ -18,44 +19,71 @@
 
 .item-menu .options-container{
     width:100%;
+    min-width: 150px;
     height: 33%;
     border-width: 1px;
   /*  border-style: solid;  */
     border-color: blue;
-    text-align: center;
+    display:none;
 }
 
+.item-menu .options-container .options-group-container{
+    position: relative;
+    width:150px;
+    height:100%;
+    left:0;
+    right: 0;
+    margin:auto;
+}
 
-.item-menu .options-container .item-direction{
-    height: 20px;
+.item-menu .options-container .options-group-container .item-direction{
+    height: 100%;
     width: 20px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: grey;
+    border-bottom: 1px black solid;
     position: relative;
     float:left;
 }
 
-.item-menu .options-container .item-remove{
-  height: 30px;
-  width: 50px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: grey;
-  position: relative;
-  float:left;
+.item-menu .options-container .options-group-container .item-direction p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 130%;
 }
 
-.item-menu .options-container .width-input{
-  height: 45px;
-  width: 50px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: orange;
-  position: relative;
-  float:left;
+.item-menu .options-container .options-group-container .item-remove{
+    height: 100%;
+    width: 50px;
+    border:none;
+    border-bottom: 1px black solid;
+    position: relative;
+    margin-left:10px;
+    float:left;
+    font-size: 110%;
+    color:red;
+    opacity:0.3;
+    background-color: transparent;
 }
 
+.item-menu .options-container .options-group-container .item-remove:hover{
+    opacity: 1.0;
+}
+
+.item-menu .options-container .options-group-container .width-input{
+    height: 100%;
+    width: 50px;
+    border:none;
+    border-bottom: 1px black solid;
+    position: relative;
+    margin-left:10px;
+    float:left;
+    font-size: 120%;
+    text-align: center;
+    background-color: transparent;
+}
 
 
 .item-resize {
@@ -70,6 +98,29 @@
 
 }
 
+.ui-resizable:hover .options-container {
+    display:block;
+}
+
+.ui-resizable-e {
+    cursor: e-resize;
+    width: 20px;
+    right: 0px;
+    top: 0;
+    height: 100%;
+    /* border:1px solid red; */
+}
+
+.ui-resizable-w {
+    cursor: w-resize;
+    width: 20px;
+    left: 0px;
+    top: 0;
+    height: 100%;
+    /* border:1px solid red; */
+}
+
+
 
 .item-transportmode {
     max-width: 100%;
@@ -83,6 +134,8 @@
     padding: 0;
 }
 
+
+
 .item-transportmode .big-image{
     position: absolute;
     bottom: 0;
@@ -95,14 +148,11 @@
 
 
 .item-transportmode-pavement {
-    max-width: 100%;
     background-color: #D3D3D3;
     height: 6%;
     max-width: 800px;
-    border-color: #808080;
-    border-style: solid;
-    border-top: 1px;
-    border-bottom: 1px;
+    border-left: 3px white solid;
+    border-right: 3px white solid;
     margin:0;
     padding: 0;
 }
