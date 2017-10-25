@@ -22,5 +22,4 @@
 //= require_tree ../templates
 //= require angular-ui-router
 //= require angular-devise
-//= require angular-modal-service
 //= require_tree .

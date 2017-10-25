@@ -1,5 +1,5 @@
 (function() {
-      function profileItem(ItemData, $document, ModalService){
+      function profileItem(ItemData, $document){
 
           return {
               templateUrl: 'profile_item.html',
@@ -12,15 +12,18 @@
                //confirming manual input fron input box
                var manualInput = false;
 
+
                 $(document).keypress(function(e) {
                     if(e.which == 13 && !manualInput) {
                       manualInput = true;
                     }
                 });
 
+
                 scope.currentElement = {
                    parentWidth: element.parent().width()
                 };
+
 
                 //apply manual width with enter
                 scope.applyNewWidth = function(){
@@ -28,10 +31,12 @@
                   return true;
                 };
 
+
                 //following change of the element width while resize
                 scope.updateWidth = function(){
                     return element.parent().width();
                 };
+
 
                 //applyng new value on element 'width' when manual input
                 scope.$watch('updateWidth()', function(oldValue, newValue){
@@ -56,21 +61,6 @@
                    return ItemData.referenceScale * scope.imageScale;
                 };
 
-                //showing modal with item extra options
-                scope.showItemExtraOptions = function(){
-                  ModalService.showModal({
-                    templateUrl: "item_extra_options.html",
-                    controller: function(){
-
-                    }
-                  }).then(function(modal) {
-                    modal.element.modal();
-                    modal.close.then(function(result) {
-
-                    });
-                  });
-                };
-
 
               }
           };
@@ -79,5 +69,5 @@
 
       angular
           .module('greenStreet')
-          .directive('profileItem', ['ItemData', '$document', 'ModalService', profileItem]);
+          .directive('profileItem', ['ItemData', '$document', profileItem]);
 })();

@@ -34,12 +34,12 @@
     left:0;
     right: 0;
     margin:auto;
+    border-bottom: 1px solid black;
 }
 
 .item-menu .options-container .options-group-container .item-direction{
     height: 100%;
     width: 20px;
-    border-bottom: 1px black solid;
     position: relative;
     float:left;
 }
@@ -58,7 +58,6 @@
     height: 100%;
     width: 50px;
     border:none;
-    border-bottom: 1px black solid;
     position: relative;
     margin-left:10px;
     float:left;
@@ -76,13 +75,25 @@
     height: 100%;
     width: 50px;
     border:none;
-    border-bottom: 1px black solid;
     position: relative;
     margin-left:10px;
     float:left;
     font-size: 120%;
     text-align: center;
     background-color: transparent;
+}
+
+.item-menu .options-container .item-extra-options {
+    position: relative;
+    width:150px;
+    height:100%;
+    left:0;
+    right: 0;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top:10px;
+    border-bottom: 1px solid black;
+
 }
 
 
@@ -95,8 +106,11 @@
     vertical-align: top;
     margin:0;
     padding: 0;
+    position:relative;
 
 }
+
+
 
 .ui-resizable:hover .options-container {
     display:block;
@@ -173,13 +187,6 @@
     border:1px red solid;
 }
 
-.item-extra-options {
-    width:150px;
-    height:50px;
-    border:3px black solid;
-    border-radius: 10px;
-
-}
 
 .item-dimensions {
     max-width: 100%;

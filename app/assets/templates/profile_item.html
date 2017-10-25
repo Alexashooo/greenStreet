@@ -6,6 +6,7 @@
               <input type="text" id="manual-input" class="width-input" width="currentElementWidth"  ng-model="currentElement.parentWidth" ng-keyup="$event.keyCode == 13 && applyNewWidth()"></input>
               <button class="item-remove" ng-click="removeItem()">DEL</button>
           </div>
+          <div class="item-extra-options"></div>
         </div>
     </div>
 
@@ -14,7 +15,7 @@
         <img class='big-image' ng-style="{'width':'auto', 'height':setImageHeight()}" id="{{imageID}}" ng-src="{{imageUrl}}" scale="{{imageScale}}">
     </div>
     <div class="item-transportmode-pavement">
-        <div class="button-extra-options" ng-click="showItemExtraOptions()"></div>
+        <div class="button-extra-options" ></div>
     </div>
     <div class="item-dimensions"></div>
 </div>

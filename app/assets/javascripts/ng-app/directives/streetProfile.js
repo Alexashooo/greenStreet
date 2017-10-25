@@ -1,5 +1,5 @@
 (function() {
-     function streetProfile($compile, $templateCache, ItemData, ImageSharing, UserData) {
+     function streetProfile($compile, $templateCache, ItemData, ImageSharing, UserData, $timeout) {
 
           return {
               templateUrl: 'street_profile.html',
@@ -131,6 +131,8 @@
 
                            //Adding HTML for new items dropped in streetProfile
                            $(ui.draggable).append($compile('<profile-item></profile-item>')(scope));
+
+
                          }
                       }
                     });
@@ -140,5 +142,5 @@
 
       angular
           .module('greenStreet')
-          .directive('streetProfile', ['$compile', '$templateCache', 'ItemData', 'ImageSharing', 'UserData', streetProfile]);
+          .directive('streetProfile', ['$compile', '$templateCache', 'ItemData', 'ImageSharing', 'UserData', '$timeout', streetProfile]);
   })();
