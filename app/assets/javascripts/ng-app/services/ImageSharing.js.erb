@@ -2,6 +2,7 @@
     function ImageSharing(){
        var ImageSharing = {};
 
+       //refactor these
        ImageSharing.transport = {
           "carSmall": {
             front: '<%=asset_path("transport/dirty/carSmallFront.png")%>',
@@ -109,6 +110,18 @@
             scaleFactor:2.12
           }
 
+        };
+
+        ImageSharing.extraOptions = {
+            "roadVehiclesGroup": {
+               arrowLeft: '<%=asset_path("transport/extra_options/arrowLeft.png")%>',
+               arrowLeftRight: '<%=asset_path("transport/extra_options/arrowLeftRight.png")%>',
+               arrowLeftStraight: '<%=asset_path("transport/extra_options/arrowLeftStraight.png")%>',
+               arrowLeftStraightRight: '<%=asset_path("transport/extra_options/arrowLeftStraightRight.png")%>',
+               arrowRaight: '<%=asset_path("transport/extra_options/arrowRight.png")%>',
+               arrowStraight: '<%=asset_path("transport/extra_options/arrowStraight.png")%>',
+               arrowStraightRight: '<%=asset_path("transport/extra_options/arrowStraightRight.png")%>'
+            }
         };
 
 

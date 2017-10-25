@@ -91,27 +91,28 @@
                      }
                      }).droppable({
                       drop: function(event, ui) {
+                        var draggableElement = $(ui.draggable);
                         //prevent street profile items to change while sorting
-                        if($(ui.draggable).hasClass('dirty-item') || $(ui.draggable).hasClass('green-item')){
+                        if(draggableElement.hasClass('dirty-item') || draggableElement.hasClass('green-item')){
 
                            //setting a new "Big" image when dropped
-                           ItemData.setBigImage($(ui.draggable).find('img').attr("id"));
+                           ItemData.setBigImage(draggableElement.find('img').attr("id"));
 
                            //setting a new ID when dropped
-                           ItemData.setNewImageID($(ui.draggable).find('img').attr("id"));
+                           ItemData.setNewImageID(draggableElement.find('img').attr("id"));
 
                           //remove classes  and HTML if draggable is dropped
-                           $(ui.draggable).removeClass().empty().addClass('item-container');
+                           draggableElement.removeClass().empty().addClass('item-container');
 
                             //adjusting height and width
-                           $(ui.draggable).height(parseInt($('.street-profile').css('height')));
-                           $(ui.draggable).width(itemDefaultWidth);
+                           draggableElement.height(parseInt($('.street-profile').css('height')));
+                           draggableElement.width(itemDefaultWidth);
 
                            //move the list(streetProfile) to left while adding items
-                           element.css('left', parseInt(element.css('left'))- parseInt($(ui.draggable).css('width'))/2);
+                           element.css('left', parseInt(element.css('left'))- parseInt(draggableElement.css('width'))/2);
 
                            //making street profile elements resizible
-                           $(ui.draggable).resizable({
+                           draggableElement.resizable({
                              start: function(event, ui){
                                  startValuesWhileResizing(element, ui.element);
                                  //because resizable - handle is in async related to the element and at one moment stops to hover
@@ -130,12 +131,19 @@
                            });
 
                            //Adding HTML for new items dropped in streetProfile
-                           $(ui.draggable).append($compile('<profile-item></profile-item>')(scope));
+                           draggableElement.append($compile('<profile-item></profile-item>')(scope));
+                           $timeout(function() {
+                                ItemData.setExtraOptions(draggableElement.find('.extra-options-second-row'),draggableElement.find('img').attr("id"), scope);
+                           });
 
 
                          }
                       }
                     });
+
+                    scope.applyExtraOption = function() {
+
+                    };
               }
             };
       }
