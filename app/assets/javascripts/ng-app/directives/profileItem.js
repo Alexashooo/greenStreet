@@ -1,12 +1,10 @@
 (function() {
-      function profileItem(ItemData, $document){
+      function profileItem(ItemData, $document, ImageSharing){
 
           return {
               templateUrl: 'profile_item.html',
               replace: true,
               restrict: 'E',
-              scope:{
-              },
               link: function(scope, element, attrs){
 
                //confirming manual input fron input box
@@ -51,6 +49,7 @@
 
                scope.removeItem = function(){
                   element.parent().empty().remove();
+                  console.log(scope);
                };
 
                 scope.imageUrl = ItemData.bigImage;
@@ -62,6 +61,12 @@
                 };
 
 
+                // appying/showing chosen extra option(direction, mix traffic...) in transport-mode pavement
+                scope.applyExtraOption = function(extraOptionElement){
+                    var imageSource = extraOptionElement.firstChild.getAttribute('ng-src');
+                    element.children()[3].getElementsByTagName('img')[0].setAttribute('src', imageSource);
+                };
+
               }
           };
 
@@ -69,5 +74,5 @@
 
       angular
           .module('greenStreet')
-          .directive('profileItem', ['ItemData', '$document', profileItem]);
+          .directive('profileItem', ['ItemData', '$document', 'ImageSharing', profileItem]);
 })();

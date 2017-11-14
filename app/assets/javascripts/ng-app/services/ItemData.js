@@ -86,16 +86,14 @@
 
        ItemData.setExtraOptions = function(element, imageID, scope){
          if(element instanceof jQuery){
-           //insert placeholders for elements
+           //insert placeholders for elements/images
            for(var i=0;i<numberOfExtraOptions(imageID); i++){
-             element.append($compile("<div class='extra-option' ng-click='applyExtraOption()'></div>")(scope));
+             element.append($compile("<div class='extra-option' ng-click='applyExtraOption($event.currentTarget)'></div>")(scope));
            };
            //insert images for elements
            var objKeys = Object.keys(ImageSharing.extraOptions[getVehiclesGroup(profileItem)]);
            element.children().each(function(index){
-              $(this).append($compile("<div></div>")(scope));
-              $(this).first().append($compile("<img ng-src='" + ImageSharing.extraOptions[getVehiclesGroup(profileItem)][objKeys[index]] +"'" + ">")(scope));
-              console.log();
+              $(this).append($compile("<img ng-src='" + ImageSharing.extraOptions[getVehiclesGroup(profileItem)][objKeys[index]] +"'" + ">")(scope));
            });
 
          } else {

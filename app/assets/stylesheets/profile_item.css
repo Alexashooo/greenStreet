@@ -117,8 +117,14 @@
     display:inline-block;
     margin-right: 5px;
     margin-left: 5px;
+    padding: 0;
 }
 
+.item-menu .options-container .item-extra-options-container .extra-options-second-row  .extra-option img{
+    height:100%;
+    width:auto;
+    position: relative;
+}
 
 .item-resize {
     width: 100%;
@@ -199,7 +205,7 @@
    cursor: pointer;
 }
 
-.item-transportmode-pavement .button-extra-options {
+.item-transportmode-pavement .extra-option-showed {
     width:40px;
     height:90%;
     position:relative;
@@ -208,6 +214,11 @@
     margin:auto;
     top:5%;
     border:1px red solid;
+}
+
+.item-transportmode-pavement .extra-option-showed img {
+    width:100%;
+    height: auto;
 }
 
 

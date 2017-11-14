@@ -131,9 +131,11 @@
                            });
 
                            //Adding HTML for new items dropped in streetProfile
-                           draggableElement.append($compile('<profile-item></profile-item>')(scope));
+                           var profileItemScope = scope.$new(true); //compile on a new scope
+                           draggableElement.append($compile('<profile-item></profile-item>')(profileItemScope));
                            $timeout(function() {
-                                ItemData.setExtraOptions(draggableElement.find('.extra-options-second-row'),draggableElement.find('img').attr("id"), scope);
+                                ItemData.setExtraOptions(draggableElement.find('.extra-options-second-row'), draggableElement.find('img').attr("id"), profileItemScope);
+                                console.log(profileItemScope);
                            });
 
 
@@ -141,9 +143,6 @@
                       }
                     });
 
-                    scope.applyExtraOption = function() {
-
-                    };
               }
             };
       }
